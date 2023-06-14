@@ -16,7 +16,6 @@ public class Project03 extends Base {
         Project3Page project3Page = new Project3Page();;
     }
 
-
     @Test(priority = 1, description = "Validate the default Book your trip form")
     public void validateDefaultTripForm(){
         Project3Page project3Page = new Project3Page();;
@@ -55,7 +54,6 @@ public class Project03 extends Base {
         Assert.assertTrue(project3Page.bookButton.isEnabled());
     }
 
-
     @Test(priority = 2, description = "Validate the Book your trip form when Round trip is selected")
     public void validateBookTripWithRoundTripSelected(){
         Project3Page project3Page = new Project3Page();;
@@ -87,8 +85,6 @@ public class Project03 extends Base {
         Assert.assertTrue(project3Page.bookButton.isEnabled());
     }
 
-
-
     @Test(priority = 3, description = "Validate the booking for 1 passenger and one way")
     public void validateBookingFor1PassengerOneWay(){
         Project3Page project3Page = new Project3Page();;
@@ -117,7 +113,6 @@ public class Project03 extends Base {
 
         Waiter.pause(3);
     }
-
 
     @Test(priority = 4, description = "Validate the booking for 1 passenger and round trip")
     public void validateBookingRoundTrip(){
@@ -154,6 +149,7 @@ public class Project03 extends Base {
 
         Waiter.pause(3);
     }
+
     @Test(priority = 5, description = "Validate the booking for 2 passengers and one way")
     public void validateBooking2Passengers(){
         Project3Page project3Page = new Project3Page();;
