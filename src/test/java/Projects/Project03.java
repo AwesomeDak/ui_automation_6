@@ -1,6 +1,5 @@
 package Projects;
 
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,11 +13,13 @@ public class Project03 extends Base {
     @BeforeMethod
     public void setPage(){
         driver.get("https://techglobal-training.com/frontend/project-3");
-        Project3Page project3page = new Project3Page();
+        Project3Page project3Page = new Project3Page();;
     }
+
 
     @Test(priority = 1, description = "Validate the default Book your trip form")
     public void validateDefaultTripForm(){
+        Project3Page project3Page = new Project3Page();;
         Assert.assertTrue(project3Page.oneWayButton.isDisplayed());
         Assert.assertTrue(project3Page.oneWayButton.isEnabled());
         Assert.assertTrue(project3Page.oneWayButton.isSelected());
@@ -57,6 +58,7 @@ public class Project03 extends Base {
 
     @Test(priority = 2, description = "Validate the Book your trip form when Round trip is selected")
     public void validateBookTripWithRoundTripSelected(){
+        Project3Page project3Page = new Project3Page();;
         project3Page.roundTripButton.click();
         Assert.assertTrue(project3Page.roundTripButton.isSelected());
         Assert.assertFalse(project3Page.oneWayButton.isSelected());
@@ -85,8 +87,11 @@ public class Project03 extends Base {
         Assert.assertTrue(project3Page.bookButton.isEnabled());
     }
 
+
+
     @Test(priority = 3, description = "Validate the booking for 1 passenger and one way")
     public void validateBookingFor1PassengerOneWay(){
+        Project3Page project3Page = new Project3Page();;
         project3Page.oneWayButton.click();
 
         DropdownHandler.selectByVisibleText(project3Page.cabinClassDropdown, "Business");
@@ -114,9 +119,9 @@ public class Project03 extends Base {
     }
 
 
-
     @Test(priority = 4, description = "Validate the booking for 1 passenger and round trip")
     public void validateBookingRoundTrip(){
+        Project3Page project3Page = new Project3Page();;
         project3Page.roundTripButton.click();
 
         DropdownHandler.selectByVisibleText(project3Page.cabinClassDropdown, "First");
@@ -148,12 +153,10 @@ public class Project03 extends Base {
                 "Cabin class: First");
 
         Waiter.pause(3);
-
     }
-
-
     @Test(priority = 5, description = "Validate the booking for 2 passengers and one way")
     public void validateBooking2Passengers(){
+        Project3Page project3Page = new Project3Page();;
         project3Page.oneWayButton.click();
 
         DropdownHandler.selectByVisibleText(project3Page.cabinClassDropdown, "Premium Economy");
@@ -161,24 +164,24 @@ public class Project03 extends Base {
         DropdownHandler.selectByVisibleText(project3Page.toDropdown, "Texas");
 
         project3Page.departMonthPicker.sendKeys("6");
-        project3Page.departDayPicker.sendKeys("13");
+        project3Page.departDayPicker.sendKeys("15");
         project3Page.departYearPicker.sendKeys("2023");
 
         DropdownHandler.selectByVisibleText(project3Page.numberOfPassengersDropdown, "2");
 
-        DropdownHandler.selectByVisibleText(project3Page.passenger1Dropdown, "Senior (65+)");
+        DropdownHandler.selectByVisibleText(project3Page.passenger1Dropdown, "Adult (16-64)");
         DropdownHandler.selectByVisibleText(project3Page.passenger1Dropdown, "Child (2-11)");
 
         project3Page.bookButton.click();
 
+        Waiter.pause(3);
+
         Assert.assertEquals(project3Page.bookingInformation.getText(), "DEPART\n" +
                 "NY to TX\n" +
-                "Tue Jun 13 2023\n" +
+                "Thu Jun 15 2023\n" +
                 "Number of Passengers: 2\n" +
                 "Passenger 1: Child (2-11)\n" +
                 "Passenger 2: Adult (16-64)\n" +
                 "Cabin class: Premium Economy");
-
-        Waiter.pause(3);
     }
 }

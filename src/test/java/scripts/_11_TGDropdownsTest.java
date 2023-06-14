@@ -35,7 +35,7 @@ public class _11_TGDropdownsTest extends Base {
         WebElement dropdown = driver.findElement(By.id("shipment_dropdown"));
         List<WebElement> dropdownOption = driver.findElements(By.cssSelector("#shipment_dropdown span"));
 
-        DropdownHandler.clickOnDropdownOption(dropdown, dropdownOption, "Delivery");
+        DropdownHandler.clickDropdownOption(dropdown, dropdownOption, "Delivery");
     }
 
     /**

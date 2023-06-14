@@ -39,13 +39,11 @@ public class Driver {
                     throw new IllegalStateException(browser + " browser does not match any case!!!");
             }
 
-            driver.manage().window().maximize(); // Maximizes the window
-            driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS); // implicit wait
+            driver.manage().window().maximize(); // Maximizes the Chrome window
+            driver.manage().timeouts().implicitlyWait(Integer.parseInt(ConfigurationReader.getProperty("implicit_wait")), TimeUnit.SECONDS); // implicit wait
         }
         return driver;
     }
-
-
     public static void quitDriver(){
         if(driver != null){
             driver.manage().deleteAllCookies();

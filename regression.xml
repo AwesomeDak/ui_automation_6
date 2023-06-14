@@ -11,8 +11,8 @@
                     <include name="validateSearchButton"/>
                 </methods>
             </class>
-            <class name="scripts._01_ProjectTest"/>
-            <class name="scripts._02_ProjectTest"/>
+            <class name="projects.Project01"/>
+            <class name="projects.Project02"/>
             <class name="scripts._02_AppleTest">
                 <methods>
                     <include name="validateTitleAndURL"/>
@@ -55,13 +55,13 @@
                     <include name="validateDynamicElementBoxes"/>
                 </methods>
             </class>
-            <class name="scripts._08_TGWaitsTest">
+            <class name="scripts._08_TGWaitTest">
                 <methods>
                     <include name="waitForRedBox"/>
                     <include name="waitForBlueBox"/>
                 </methods>
             </class>
-            <class name="scripts._09_TGCheckboxTest">
+            <class name="scripts._09_TGCheckBoxTest">
                 <methods>
                     <include name="checkboxTest"/>
                     <include name="checkboxTest2"/>
@@ -81,13 +81,13 @@
                     <include name="dropdownTestCase"/>
                 </methods>
             </class>
-            <class name="scripts._12_TGAlertsTest">
+            <class name="scripts._12_AlertsTest">
                 <methods>
                     <include name="warningAlert"/>
                     <include name="confirmationAlert"/>
                 </methods>
             </class>
-            <class name="scripts._13_IFrameTest">
+            <class name="scripts._13_IFRAMETest">
                 <methods>
                     <include name="validateTheParagraph"/>
                     <include name="validateTheFormSubmission"/>

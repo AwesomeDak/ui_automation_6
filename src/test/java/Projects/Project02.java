@@ -16,32 +16,29 @@ public class Project02 extends Base {
         driver.get("https://techglobal-training.com/frontend/project-2");
     }
 
-    @Test(priority = 1, description = "TC01 - Validate the login form")
-    public void validateLoginForm() {
-        WebElement usernameInputBox = driver.findElement(By.id("username"));
-        WebElement usernameLabel = driver.findElement(By.xpath("//input[@id='username']/../label"));
+    @Test(priority = 1, description = "Test Case 01 - Validate the login form")
+    public void validateTheLoginForm() {
+        Assert.assertTrue(project2Page.usernameInputBox.isDisplayed());
+        Assert.assertTrue(project2Page.usernameInputBox.isEnabled());
+        Assert.assertNotEquals(project2Page.usernameInputBox.getAttribute("required"), "true");
+        Assert.assertTrue(project2Page.usernameInputBoxLabel.isDisplayed());
+        Assert.assertEquals(project2Page.usernameInputBoxLabel.getText(), "Please enter your username");
 
-        WebElement passwordInputBox = driver.findElement(By.id("password"));
-        WebElement passwordLabel = driver.findElement(By.xpath("//input[@id='password']/../label"));
+        Assert.assertTrue(project2Page.passwordInputBox.isDisplayed());
+        Assert.assertTrue(project2Page.passwordInputBox.isEnabled());
+        Assert.assertNotEquals(project2Page.passwordInputBox.getAttribute("required"), "true");
+        Assert.assertTrue(project2Page.passwordInputBoxLabel.isDisplayed());
+        Assert.assertEquals(project2Page.passwordInputBoxLabel.getText(), "Please enter your password");
 
-        WebElement loginButton = driver.findElement(By.id("login_btn"));
-        WebElement forgotPasswordLink = driver.findElement(By.linkText("Forgot Password?"));
+        Assert.assertTrue(project2Page.loginButton.isDisplayed());
+        Assert.assertTrue(project2Page.loginButton.isEnabled());
+        Assert.assertEquals(project2Page.loginButton.getText(), "LOGIN");
 
-        Assert.assertTrue(usernameInputBox.isDisplayed());
-        Assert.assertFalse(Boolean.parseBoolean(usernameInputBox.getAttribute("required")));
-        Assert.assertEquals(usernameLabel.getText(), "Please enter your username");
-
-        Assert.assertTrue(passwordInputBox.isDisplayed());
-        Assert.assertFalse(Boolean.parseBoolean(passwordInputBox.getAttribute("required")));
-        Assert.assertEquals(passwordLabel.getText(), "Please enter your password");
-
-        Assert.assertTrue(loginButton.isDisplayed());
-        Assert.assertTrue(loginButton.isEnabled());
-
-        Assert.assertTrue(forgotPasswordLink.isDisplayed());
-        Assert.assertTrue(forgotPasswordLink.isEnabled());
-        Assert.assertEquals(forgotPasswordLink.getText(), "Forgot Password?");
+        Assert.assertTrue(project2Page.forgotPasswordLink.isDisplayed());
+        Assert.assertTrue(project2Page.forgotPasswordLink.isEnabled());
+        Assert.assertEquals(project2Page.forgotPasswordLink.getText(), "Forgot Password?");
     }
+
 
     @Test(priority = 2, description = "TC02 - Validate the valid login")
     public void ValidateValidLogin() {
