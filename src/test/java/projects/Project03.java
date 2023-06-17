@@ -1,4 +1,4 @@
-package Projects;
+package projects;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -13,12 +13,12 @@ public class Project03 extends Base {
     @BeforeMethod
     public void setPage(){
         driver.get("https://techglobal-training.com/frontend/project-3");
-        Project3Page project3Page = new Project3Page();;
+        Project3Page project3Page = new Project3Page();
     }
 
     @Test(priority = 1, description = "Validate the default Book your trip form")
     public void validateDefaultTripForm(){
-        Project3Page project3Page = new Project3Page();;
+        Project3Page project3Page = new Project3Page();
         Assert.assertTrue(project3Page.oneWayButton.isDisplayed());
         Assert.assertTrue(project3Page.oneWayButton.isEnabled());
         Assert.assertTrue(project3Page.oneWayButton.isSelected());
@@ -56,7 +56,7 @@ public class Project03 extends Base {
 
     @Test(priority = 2, description = "Validate the Book your trip form when Round trip is selected")
     public void validateBookTripWithRoundTripSelected(){
-        Project3Page project3Page = new Project3Page();;
+        Project3Page project3Page = new Project3Page();
         project3Page.roundTripButton.click();
         Assert.assertTrue(project3Page.roundTripButton.isSelected());
         Assert.assertFalse(project3Page.oneWayButton.isSelected());
@@ -87,7 +87,7 @@ public class Project03 extends Base {
 
     @Test(priority = 3, description = "Validate the booking for 1 passenger and one way")
     public void validateBookingFor1PassengerOneWay(){
-        Project3Page project3Page = new Project3Page();;
+        Project3Page project3Page = new Project3Page();
         project3Page.oneWayButton.click();
 
         DropdownHandler.selectByVisibleText(project3Page.cabinClassDropdown, "Business");
@@ -116,7 +116,7 @@ public class Project03 extends Base {
 
     @Test(priority = 4, description = "Validate the booking for 1 passenger and round trip")
     public void validateBookingRoundTrip(){
-        Project3Page project3Page = new Project3Page();;
+        Project3Page project3Page = new Project3Page();
         project3Page.roundTripButton.click();
 
         DropdownHandler.selectByVisibleText(project3Page.cabinClassDropdown, "First");
@@ -152,7 +152,7 @@ public class Project03 extends Base {
 
     @Test(priority = 5, description = "Validate the booking for 2 passengers and one way")
     public void validateBooking2Passengers(){
-        Project3Page project3Page = new Project3Page();;
+        Project3Page project3Page = new Project3Page();
         project3Page.oneWayButton.click();
 
         DropdownHandler.selectByVisibleText(project3Page.cabinClassDropdown, "Premium Economy");
